@@ -7,7 +7,7 @@
 
 ## Application
 ### Create Table
-create_table.py $file_input $table_name
+$ python create_table.py $file_input $table_name
 
 ### Insert Data
 $ python insert_data.py  $file_input $table_name
