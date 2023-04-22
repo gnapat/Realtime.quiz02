@@ -1,4 +1,7 @@
 # Realtime.quiz02
+## Design
+![image](https://user-images.githubusercontent.com/22583786/233766388-f2bffc1f-9a72-48c8-be50-e5d10e239836.png)
+
 
 ## Docker File 
 #### 1. unzip docker_quiz02.zip
