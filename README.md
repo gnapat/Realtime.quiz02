@@ -18,8 +18,10 @@ $ python create_table.py $file_input $table_name
 ### Insert Data
 $ python insert_data.py  $file_input $table_name
 
-### ksql Create Table
-file: create_ksqldb_quiz02_table.sql
+### KSQL
+#### Create Stream
+Raw Zone: create_ksqldb_quiz02_raw_table.sql
+Persist Zone: create_ksqldb_quiz02_persist_table.sql
 
 ### ksql Cleansing
 
