@@ -31,7 +31,7 @@ Persist Zone: create_ksqldb_quiz02_persist_table.sql
 
 #### Create Connector
 ksql> RUN SCRIPT '/etc/sql/all.sql';
-```
+```sql
 CREATE SOURCE CONNECTOR `postgres-source` WITH(
     "connector.class"='io.confluent.connect.jdbc.JdbcSourceConnector',
     "connection.url"='jdbc:postgresql://postgres:5432/root?user=root&password=secret',
@@ -59,7 +59,7 @@ CREATE SINK CONNECTOR `elasticsearch-sink` WITH(
 ![image](https://user-images.githubusercontent.com/22583786/234232662-a1a9e051-1085-47fa-aeed-d2f7e0b24a5c.png)
 
 #### Verify quiz02_raw
-```
+```sql
 SELECT index,breakfast,coffee,calories_day,drink,eating_changes_coded,exercise,fries,soup,nutritional_check,employment,fav_food,income,sports,
 veggies_day,indian_food,Italian_food,persian_food,thai_food,vitamins,self_perception_weight,weight
 FROM quiz02_raw
@@ -73,7 +73,7 @@ $ python insert_data.py  $file_input $table_name
 
 
 ### ksql Cleansing (quiz02_raw -> quiz02_persist)
-```
+```sql
 CREATE STREAM quiz02_persist
 with (
     KAFKA_TOPIC = 'quiz02_persist',
@@ -89,7 +89,7 @@ EMIT CHANGES;
 
 ### KSQLDB Analyze
 
-```
+```sql
 CREATE STREAM quiz02_analze
 with (
     KAFKA_TOPIC = 'quiz02_persist',
