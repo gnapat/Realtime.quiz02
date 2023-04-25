@@ -1,6 +1,6 @@
 # Realtime.quiz02
 ## Design
-![image](https://user-images.githubusercontent.com/22583786/234240503-c5152b19-44e6-4855-b523-8133c538144b.png)
+![image](https://user-images.githubusercontent.com/22583786/234248928-9f85ed83-529f-4227-9f2c-74a2b7255782.png)
 
 
 ## Docker File 
