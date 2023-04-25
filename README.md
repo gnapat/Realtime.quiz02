@@ -15,15 +15,76 @@ $ conda install -c anaconda psycopg2
 ### Create Table
 $ python create_table.py $file_input $table_name
 
+
+
+### KSQL
+
+#### ksqldb-cli
+$ docker exec -it ksqldb-cli.quiz02 /bin/bash
+$ ksql http://ksqldb-server.quiz02:8088
+
+#### Create Stream
+Raw Zone: create_ksqldb_quiz02_raw_table.sql
+
+####
+Persist Zone: create_ksqldb_quiz02_persist_table.sql
+
+#### Create Connector
+ksql> RUN SCRIPT '/etc/sql/all.sql';
+```
+CREATE SOURCE CONNECTOR `postgres-source` WITH(
+    "connector.class"='io.confluent.connect.jdbc.JdbcSourceConnector',
+    "connection.url"='jdbc:postgresql://postgres:5432/root?user=root&password=secret',
+    "mode"='incrementing',
+    "incrementing.column.name"='id',
+    "topic.prefix"='',
+    "table.whitelist"='titles',
+    "key"='id');
+
+
+CREATE SINK CONNECTOR `elasticsearch-sink` WITH(
+    "connector.class"='io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
+    "connection.url"='http://elasticsearch:9200',
+    "connection.username"='',
+    "connection.password"='',
+    "batch.size"='1',
+    "write.method"='insert',
+    "topics"='titles',
+    "type.name"='changes',
+    "key"='title_id');
+
+```
+
+#### Verify Stream
+![image](https://user-images.githubusercontent.com/22583786/234232662-a1a9e051-1085-47fa-aeed-d2f7e0b24a5c.png)
+
+#### Verify quiz02_raw
+```
+SELECT index,breakfast,coffee,calories_day,drink,eating_changes_coded,exercise,fries,soup,nutritional_check,employment,fav_food,income,sports,
+veggies_day,indian_food,Italian_food,persian_food,thai_food,vitamins,self_perception_weight,weight
+FROM quiz02_raw
+EMIT CHANGES;
+```
+
 ### Insert Data
 $ python insert_data.py  $file_input $table_name
 
-### KSQL
-#### Create Stream
-Raw Zone: create_ksqldb_quiz02_raw_table.sql
-Persist Zone: create_ksqldb_quiz02_persist_table.sql
+![image](https://user-images.githubusercontent.com/22583786/234234015-1e851d7f-7697-4657-a6b4-d8cb5b12069a.png)
 
-### ksql Cleansing
+
+### ksql Cleansing (quiz02_raw -> quiz02_persist)
+```
+CREATE STREAM quiz02_persist
+with (
+    KAFKA_TOPIC = 'quiz02_persist',
+    VALUE_FORMAT = 'AVRO',
+    PARTITIONS = 2
+) as SELECT index,breakfast,coffee,calories_day,drink,eating_changes_coded,exercise,fries,soup,nutritional_check,employment,fav_food,income,sports,
+veggies_day,indian_food,Italian_food,persian_food,thai_food,vitamins,self_perception_weight,weight
+FROM quiz02_raw 
+where calories_day >= 1.0
+EMIT CHANGES;
+```
 
 
 ### ksql Analyze
