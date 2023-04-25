@@ -87,7 +87,7 @@ EMIT CHANGES;
 ```
 
 
-### ksql Analyze
+### KSQLDB Analyze
 
 ```
 CREATE STREAM quiz02_analze
