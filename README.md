@@ -103,6 +103,6 @@ where calories_day >= 1.0
 EMIT CHANGES;
 ```
 
-### Sink NoSQL
+## Sink NoSQL
 
-### Visualize
+## Visualize
