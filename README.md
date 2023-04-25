@@ -87,6 +87,7 @@ EMIT CHANGES;
 ```
 
 
+
 ### KSQLDB Analyze
 
 ```sql
@@ -101,3 +102,7 @@ FROM quiz02_persist
 where calories_day >= 1.0
 EMIT CHANGES;
 ```
+
+### Sink NoSQL
+
+### Visualize
