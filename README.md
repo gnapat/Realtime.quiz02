@@ -115,7 +115,7 @@ EMIT CHANGES;
 
 
 ### KSQLDB Analyze
-
+Analyze Zone:
 ```sql
 CREATE STREAM quiz02_analze
 with (
