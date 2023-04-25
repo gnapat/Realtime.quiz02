@@ -21,6 +21,7 @@ $ python create_table.py $file_input $table_name
 
 #### ksqldb-cli
 $ docker exec -it ksqldb-cli.quiz02 /bin/bash
+
 $ ksql http://ksqldb-server.quiz02:8088
 
 #### Create Stream
