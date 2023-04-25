@@ -14,6 +14,7 @@ $ conda install -c anaconda psycopg2
 
 ### Create Table
 $ python create_table.py $file_input $table_name
+
 ![image](https://user-images.githubusercontent.com/22583786/234261822-fd7e75f3-0ef8-48d1-946f-d33cbfa9565b.png)
 
 
