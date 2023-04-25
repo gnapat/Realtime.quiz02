@@ -25,9 +25,36 @@ $ ksql http://ksqldb-server.quiz02:8088
 
 #### Create Stream
 Raw Zone: create_ksqldb_quiz02_raw_table.sql
+```sql
+CREATE STREAM quiz02_raw (
+index int,
+GPA varchar,
+Gender int,
+breakfast int,
+calories_chicken int,
+calories_day double,
+...
+waffle_calories int,
+weight varchar )  WITH (KAFKA_TOPIC='quiz02_raw',VALUE_FORMAT='AVRO');
+
+```
 
 ####
 Persist Zone: create_ksqldb_quiz02_persist_table.sql
+```sql
+CREATE STREAM quiz02_persist
+with (
+    KAFKA_TOPIC = 'quiz02_persist',
+    VALUE_FORMAT = 'AVRO',
+    PARTITIONS = 2
+) as SELECT index,breakfast,coffee,calories_day,drink,eating_changes_coded,exercise,fries,soup,nutritional_check,employment,fav_food,income,sports,
+veggies_day,indian_food,Italian_food,persian_food,thai_food,vitamins,self_perception_weight,weight
+FROM quiz02_raw 
+where calories_day >= 1.0
+EMIT CHANGES;
+```
+#### Verify Stream
+![image](https://user-images.githubusercontent.com/22583786/234232662-a1a9e051-1085-47fa-aeed-d2f7e0b24a5c.png)
 
 #### Create Connector
 ksql> RUN SCRIPT '/etc/sql/all.sql';
@@ -55,8 +82,7 @@ CREATE SINK CONNECTOR `elasticsearch-sink` WITH(
 
 ```
 
-#### Verify Stream
-![image](https://user-images.githubusercontent.com/22583786/234232662-a1a9e051-1085-47fa-aeed-d2f7e0b24a5c.png)
+
 
 #### Verify quiz02_raw
 ```sql
