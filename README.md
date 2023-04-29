@@ -25,7 +25,7 @@ $ python create_table.py $file_input $table_name
 $ docker exec -it ksqldb-cli.quiz02 /bin/bash
 
 $ ksql http://ksqldb-server.quiz02:8088
-
+SET 'auto.offset.reset' = 'earliest';
 #### Create Stream
 Raw Zone: create_ksqldb_quiz02_raw_table.sql
 ```sql
