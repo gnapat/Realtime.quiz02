@@ -28,7 +28,7 @@ $ ksql http://ksqldb-server.quiz02:8088
 
 SET 'auto.offset.reset' = 'earliest';
 
-drop connector `postgres_quiz06`;
+drop connector \`postgres_quiz06\`;
 
 
 #### Create Stream
