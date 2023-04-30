@@ -18,6 +18,14 @@ Create database on postgresql.
 ```sql
 CREATE DATABASE quiz02_raw;
 ```
+
+Verify table
+```sql
+SELECT * from quiz02_raw;
+```
+![image](https://user-images.githubusercontent.com/22583786/235336908-a32ff945-d320-47bb-aa37-be4734183e31.png)
+
+
 ### Create Table (PostgreSQL)
 $ python create_table.py $file_input $table_name
 
