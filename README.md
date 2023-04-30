@@ -228,14 +228,21 @@ EMIT CHANGES;
 ## Visualize
 
 ## Note
-```sql
-drop connector `postgres_test01`;
-```
 
+Show connector information
 ```sql
-DESCRIBE connector `postgres_test01`;
+DESCRIBE connector `postgres_test02`;
 ```
+![image](https://user-images.githubusercontent.com/22583786/235336731-9b15db7b-00c0-438a-9bdf-106a9eebf5a7.png)
 
+Show stream information
 ```sql
 DESCRIBE quiz02_raw;
+```
+![image](https://user-images.githubusercontent.com/22583786/235336810-400fd581-7f07-4a17-8270-1b527e11f09c.png)
+
+
+Delete connector
+```sql
+drop connector `postgres_test01`;
 ```
