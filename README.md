@@ -12,24 +12,32 @@
 ### Install psycopg2 (postgresql client)
 $ conda install -c anaconda psycopg2
 
+### Postgres Preparing
+
+
 ### Create Table
 $ python create_table.py $file_input $table_name
 
 ![image](https://user-images.githubusercontent.com/22583786/234261822-fd7e75f3-0ef8-48d1-946f-d33cbfa9565b.png)
 
 
-
 ### KSQL
 
 #### ksqldb-cli
+```shell
 $ docker exec -it ksqldb-cli.quiz02 /bin/bash
 
 $ ksql http://ksqldb-server.quiz02:8088
+```
+```sql
 
 SET 'auto.offset.reset' = 'earliest';
 
+# DROP Connector
 drop connector \`postgres_quiz06\`;
 
+DESCRIBE connector `postgres_test01`;
+```
 
 #### Create Stream
 Raw Zone: create_ksqldb_quiz02_raw_table.sql
@@ -73,7 +81,7 @@ CREATE SOURCE CONNECTOR `postgres-source` WITH(
     "mode"='incrementing',
     "incrementing.column.name"='id',
     "topic.prefix"='',
-    "table.whitelist"='titles',
+    "table.whitelist"='quiz02_raw',
     "key"='id');
 
 
@@ -84,7 +92,7 @@ CREATE SINK CONNECTOR `elasticsearch-sink` WITH(
     "connection.password"='',
     "batch.size"='1',
     "write.method"='insert',
-    "topics"='titles',
+    "topics"='quiz02_persist',
     "type.name"='changes',
     "key"='title_id');
 
