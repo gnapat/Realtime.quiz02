@@ -8,7 +8,7 @@
 #### 2. $ cd docker_quiz02
 #### 3. $ docker-compose up
 
-## Application
+## Installation and running
 ### Install psycopg2 (postgresql client)
 ```shell
 conda install -c anaconda psycopg2
