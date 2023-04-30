@@ -63,7 +63,7 @@ set offset to begin (Option)
 SET 'auto.offset.reset' = 'earliest';
 ```
 
-#### Create Stream
+Create Stream
 Raw Zone: create_ksqldb_quiz02_raw_table.sql
 ```sql
 CREATE STREAM quiz02_raw (
@@ -188,6 +188,8 @@ veggies_day,indian_food,Italian_food,persian_food,thai_food,vitamins,self_percep
 FROM quiz02_raw
 EMIT CHANGES;
 ```
+![image](https://user-images.githubusercontent.com/22583786/235337011-4604fffc-caa3-4f96-a07a-ab0819c74738.png)
+
 
 ### Insert Data
 $ python insert_data.py  $file_input $table_name
