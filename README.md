@@ -1,9 +1,9 @@
 # Realtime.quiz02
-## Design
+## Data flow.
 ![image](https://user-images.githubusercontent.com/22583786/234262295-7466da5a-97db-4b58-b5cb-0f22539e82c7.png)
 
 
-## Docker File 
+## Docker File.
 #### 1. unzip docker_quiz02.zip
 #### 2. $ cd docker_quiz02
 #### 3. $ docker-compose up
@@ -13,7 +13,7 @@
 ```shell
 conda install -c anaconda psycopg2
 ```
-### PostgreSQL
+### PostgreSQL.
 Create database on postgresql.
 ```sql
 CREATE DATABASE quiz02_raw;
@@ -26,14 +26,14 @@ SELECT * from quiz02_raw;
 ![image](https://user-images.githubusercontent.com/22583786/235336908-a32ff945-d320-47bb-aa37-be4734183e31.png)
 
 
-### Create Table (PostgreSQL)
+### Create Table (PostgreSQL).
 $ python create_table.py $file_input $table_name
 
 ```shell
 python create_table.py food_coded.csv quiz02_raw
 ```
 
-### Kafka 
+### Kafka. 
 
 #### Create Kafka topic
 
