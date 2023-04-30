@@ -41,10 +41,10 @@ python create_table.py food_coded.csv quiz02_raw
 docker exec -it kafka.quiz02 /bin/bash
 ```
 ```shell
-kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_raw
+kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_raw --create
 ```
 ```shell
-kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_persist
+kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_persist --create
 ```
 ### KSQL
 
