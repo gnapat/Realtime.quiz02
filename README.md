@@ -18,7 +18,7 @@ Create database on postgresql.
 ```sql
 CREATE DATABASE quiz02_raw;
 ```
-### Create Table
+### Create Table (PostgreSQL)
 $ python create_table.py $file_input $table_name
 
 ```shell
