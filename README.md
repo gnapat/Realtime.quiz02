@@ -14,11 +14,15 @@ $ conda install -c anaconda psycopg2
 
 ### Postgres Preparing
 
-
+```sql
+CREATE DATABASE quiz02_raw;
+```
 ### Create Table
 $ python create_table.py $file_input $table_name
 
-![image](https://user-images.githubusercontent.com/22583786/234261822-fd7e75f3-0ef8-48d1-946f-d33cbfa9565b.png)
+```shell
+python create_table.py food_coded.csv quiz02_raw
+```
 
 
 ### KSQL
@@ -29,6 +33,7 @@ $ docker exec -it ksqldb-cli.quiz02 /bin/bash
 
 $ ksql http://ksqldb-server.quiz02:8088
 ```
+
 ```sql
 
 SET 'auto.offset.reset' = 'earliest';
@@ -37,6 +42,15 @@ SET 'auto.offset.reset' = 'earliest';
 drop connector \`postgres_quiz06\`;
 
 DESCRIBE connector `postgres_test01`;
+```
+
+#### Create Kafka topic
+
+```shell
+kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_raw
+```
+```shell
+kafka-topics --bootstrap-server kafka.quiz02:9092 --topic quiz02_persist
 ```
 
 #### Create Stream
@@ -111,7 +125,14 @@ EMIT CHANGES;
 ### Insert Data
 $ python insert_data.py  $file_input $table_name
 
-![image](https://user-images.githubusercontent.com/22583786/234234015-1e851d7f-7697-4657-a6b4-d8cb5b12069a.png)
+```shell
+python insert_data.py food_coded.csv quiz02_raw
+```
+
+Result
+
+![image](https://user-images.githubusercontent.com/22583786/235335788-fdac6dfc-bce6-4e0e-8849-9c02c0f4af20.png)
+
 
 
 ### ksql Cleansing (quiz02_raw -> quiz02_persist)
