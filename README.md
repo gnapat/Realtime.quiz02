@@ -154,14 +154,14 @@ ksql> RUN SCRIPT '/etc/sql/all.sql';
 
 Create source.
 ```sql
-CREATE SOURCE CONNECTOR `postgres-source` WITH(
+CREATE SOURCE CONNECTOR `postgres-dev01` WITH(
     "connector.class"='io.confluent.connect.jdbc.JdbcSourceConnector',
-    "connection.url"='jdbc:postgresql://postgres:5432/root?user=root&password=secret',
+    "connection.url"='jdbc:postgresql://postgres:5432/quiz02_dev?user=root&password=secret',
     "mode"='incrementing',
-    "incrementing.column.name"='id',
+    "incrementing.column.name"='index',
     "topic.prefix"='',
     "table.whitelist"='quiz02_raw',
-    "key"='id');
+    "key"='index');
 ```
 
 Create sink.
