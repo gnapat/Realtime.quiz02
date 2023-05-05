@@ -255,6 +255,8 @@ CREATE SINK CONNECTOR `elasticsearch-sink-analyze-map01` WITH(
 ```
 ## Visualize
 
+![image](https://user-images.githubusercontent.com/22583786/236402795-6bab83ab-25b9-48f2-aefd-6b8b8abfa559.png)
+
 ## Note
 
 Show connector information
