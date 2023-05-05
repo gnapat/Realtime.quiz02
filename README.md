@@ -209,7 +209,7 @@ Result
 
 ### KSQL MAPPING/CLEANSING (quiz02_raw -> quiz02_analyze)
 ```sql
-CREATE STREAM quiz02_analyze
+CREATE STREAM quiz02_all
 with (
     KAFKA_TOPIC = 'quiz02_analyze',
     VALUE_FORMAT = 'AVRO',
@@ -417,14 +417,14 @@ Analyze Zone:
 ## Sink NoSQL
 CONNECTOR SINK
 ```sql
-CREATE SINK CONNECTOR `elasticsearch-sink-analyze-map01` WITH(
+CREATE SINK CONNECTOR `elasticsearch-sink-all-01` WITH(
     "connector.class"='io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
     "connection.url"='http://elasticsearch:9200',
     "connection.username"='',
     "connection.password"='',
     "batch.size"='1',
     "write.method"='insert',
-    "topics"='quiz02_analyze',
+    "topics"='quiz02_all',
     "type.name"='changes',
     "value.converter.schema.registry.url" ='http://schema-registry.quiz02:8081',
     "value.converter" = 'io.confluent.connect.avro.AvroConverter',
