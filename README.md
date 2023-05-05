@@ -1,4 +1,22 @@
-# Realtime.quiz02
+
+
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+   
+  </a>
+
+
+  <p align="center">
+  <h2> DADS6005 QUIZ02 Data Streaming and Real-Time Analytics <br /><br />
+   Korawee Peerasantikul 6420422007 <br />Kruawun Jankaew 6420422016 <br />Pimchayanan Kusontramas 6420422018<br />Sorawit Sinlapanurak 6420422020 <br />Napat Phongvichian 6420422022 </h2>
+    <br />
+    <a href="https://www.youtube.com/watch?v=jS3fd4p6_Z4"><strong>Video Presentation »</strong></a>
+    <a href="https://github.com/gnapat/First-Person-Shooter-Games-Live-Chat/blob/main/DADS5001_FPS_Game_Streaming.pdf"><strong>PDF Presentation»</strong></a>
+    <br />
+  </p>
+</div>
+
+
 ## Data flow.
 ![image](https://user-images.githubusercontent.com/22583786/234262295-7466da5a-97db-4b58-b5cb-0f22539e82c7.png)
 
