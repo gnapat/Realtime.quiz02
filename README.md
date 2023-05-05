@@ -237,8 +237,7 @@ EMIT CHANGES;
 ```
 
 ## Sink NoSQL
-
-## Visualize
+CONNECTOR SINK
 ```sql
 CREATE SINK CONNECTOR `elasticsearch-sink-analyze-map01` WITH(
     "connector.class"='io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
@@ -254,6 +253,8 @@ CREATE SINK CONNECTOR `elasticsearch-sink-analyze-map01` WITH(
     "key.ignore" = 'true',
     "key"='index');
 ```
+## Visualize
+
 ## Note
 
 Show connector information
