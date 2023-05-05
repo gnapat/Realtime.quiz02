@@ -166,16 +166,19 @@ CREATE SOURCE CONNECTOR `postgres-dev01` WITH(
 
 Create sink.
 ```sql
-CREATE SINK CONNECTOR `elasticsearch-sink` WITH(
+CREATE SINK CONNECTOR `elasticsearch-sink-map01` WITH(
     "connector.class"='io.confluent.connect.elasticsearch.ElasticsearchSinkConnector',
     "connection.url"='http://elasticsearch:9200',
     "connection.username"='',
     "connection.password"='',
     "batch.size"='1',
     "write.method"='insert',
-    "topics"='quiz02_persist',
+    "topics"='quiz02_all',
     "type.name"='changes',
-    "key"='title_id');
+    "value.converter.schema.registry.url" ='http://schema-registry.quiz02:8081',
+    "value.converter" = 'io.confluent.connect.avro.AvroConverter',
+    "key.ignore" = 'true',
+    "key"='index');
 
 ```
 
