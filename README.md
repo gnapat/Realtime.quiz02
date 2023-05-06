@@ -18,7 +18,8 @@
 
 
 ## Data flow.
-![image](https://user-images.githubusercontent.com/22583786/234262295-7466da5a-97db-4b58-b5cb-0f22539e82c7.png)
+![image](https://user-images.githubusercontent.com/22583786/236591775-2e16020a-aebc-4eec-a80b-a93fc3b20667.png)
+
 
 
 ## Docker File.
