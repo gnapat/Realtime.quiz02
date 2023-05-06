@@ -27,6 +27,9 @@
 #### 2. $ cd docker_quiz02
 #### 3. $ docker-compose up
 
+![image](https://user-images.githubusercontent.com/22583786/236591971-f41ac66c-5d81-40f3-b018-3a2de01cfa16.png)
+
+
 ## Installation and running
 ### Install psycopg2 (postgresql client)
 ```shell
