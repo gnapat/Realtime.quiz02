@@ -113,8 +113,9 @@ SET 'auto.offset.reset' = 'earliest';
 ```
 
 Create Stream
-Raw Zone: create_ksqldb_quiz02_raw_table.sql
+https://github.com/gnapat/Realtime.quiz02/blob/main/stream.sql
 ```sql
+
 CREATE STREAM quiz02_raw (
 index int,
 GPA varchar,
@@ -178,9 +179,7 @@ veggies_day int,
 vitamins int,
 waffle_calories int,
 weight varchar )  WITH (KAFKA_TOPIC='quiz02_raw',VALUE_FORMAT='AVRO');
-
 ```
-
 ####
 Persist Zone: create_ksqldb_quiz02_persist_table.sql
 ```sql
