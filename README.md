@@ -16,8 +16,35 @@
   </p>
 </div>
 
+## Introduction
+This quiz is part of the DADS6005 (Data Streaming and Real-Time Analytics) course at
+National Institute of Development Administration (NIDA).
 
-## Data flow.
+### Objectives
+The main objective of this quiz is to design and implement “data-streaming and real-time
+analytics” system in addition to real-time data cleansing and analytics.
+
+## Datasets
+We use a dataset of Food choices College students’ food and cooking preferences from
+kaggle provided by Assistant Prof. Ekarat Rattagan.
+
+## Methodology
+1. Use Python to write the data source line-by-line from the CSV to SQL database (DB)
+(source part). The writing duration (d) must be random and between 0 and 2 seconds.
+2. Connect the SQL DB to a Kafka cluster via topic1.
+3. Clean the data in topic1 using ksqlDB and then submit it to topic2.
+4. Analyze the data in topic2 using ksqlDB and then submit it to topic3.
+5. Analyze the data in topic2 using ksqlDB and then submit it to topic3.
+6. Analyze the data in topic2 using ksqlDB and then submit it to topic3.
+7. Visualize the real-time data from topic3 using tools such as Plotly, etc.
+8. Conduct analytic based on your questions.
+9. Set up and answer three questions:
+(a) easy, e.g., simple statistics
+(b) medium, e.g., join, windowed, etc.
+(c) hard, e.g., analytical insight
+
+
+## Diagram of System Design.
 ![image](https://user-images.githubusercontent.com/22583786/236591775-2e16020a-aebc-4eec-a80b-a93fc3b20667.png)
 
 
