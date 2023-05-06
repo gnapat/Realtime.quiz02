@@ -453,6 +453,10 @@ CREATE SINK CONNECTOR `elasticsearch-sink-all-01` WITH(
     "key.ignore" = 'true',
     "key"='index');
 ```
+
+![image](https://user-images.githubusercontent.com/22583786/236593909-5873a711-01d3-4540-bac7-4b4de040cea6.png)
+
+
 ## Visualize
 
 ![image](https://user-images.githubusercontent.com/22583786/236592221-9c3109ec-c805-4205-8e3a-3e25020d9059.png)
